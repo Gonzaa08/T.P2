@@ -1,0 +1,7 @@
+[
+    { "id": 1, "nombre": "Silla Gamer", "precio": 50000.00, "stock": 5 },
+    { "id": 2, "nombre": "Escritorio Gamer", "precio": 320000.00, "stock": 2 },
+    { "id": 3, "nombre": "Lampara Led De Pared", "precio": 15000.99, "stock": 1 },
+    { "id": 4, "nombre": "Ventilazor Chiquito", "precio": 1200.00, "stock": 3 },
+    { "id": 5, "nombre": "Combo Mouse + Teclado", "precio": 26999.00, "stock": 10 }
+]

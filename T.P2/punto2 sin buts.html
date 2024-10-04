@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 98vh;
+            background-color: #f4f4f4;
+        }
+        .form-container {
+            background: white;
+            padding: 80px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input {
+            margin: 15px 0;
+            padding: 15px;
+            width: 89%;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 15px;
+            background-color: #8c00ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0071b3;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Registro</h2>
+        <form id="registrationForm">
+            <input type="text" id="username" placeholder="Nombre de usuario" required>
+            <span id="usernameError" class="error"></span>
+
+            <input type="email" id="email" placeholder="Correo electrónico" required>
+            <span id="emailError" class="error"></span>
+
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <span id="passwordError" class="error"></span>
+
+            <input type="password" id="passwordConfirmation" placeholder="Confirmar Contraseña" required>
+            <span id="passwordConfirmationError" class="error"></span>
+
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            document.getElementById('usernameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('passwordConfirmationError').textContent = '';
+
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const passwordConfirmation = document.getElementById('passwordConfirmation').value;
+
+            let valid = true;
+
+            if (username.length < 3) {
+                document.getElementById('usernameError').textContent = 'El nombre de usuario debe tener al menos 3 caracteres.';
+                valid = false;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById('emailError').textContent = 'Por favor, introduce un correo electrónico válido.';
+                valid = false;
+            }
+
+            if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'La contraseña debe tener al menos 6 caracteres.';
+                valid = false;
+            }
+
+            if (password !== passwordConfirmation) {
+                document.getElementById('passwordConfirmationError').textContent = 'Las contraseñas no coinciden.';
+                valid = false;
+            }
+
+            if (valid) {
+                alert('Formulario enviado correctamente');
+            }
+        });
+    </script>
+</body>
+</html>

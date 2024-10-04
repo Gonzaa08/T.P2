@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imitar alert, confirm y prompt</title>
+    <link rel="stylesheet" href="punto5.css">
+</head>
+<body>
+    <h1>Botones alert comfirm y promt</h1>
+
+    <button onclick="showAlert()">Alert</button>
+    <button onclick="showConfirm()">Confirm</button>
+    <button onclick="showPrompt()">Prompt</button>
+
+    <!-- Dialog para Alert -->
+    <dialog id="alertDialog">
+        <p id="alertMessage">Mensaje de alerta</p>
+        <button onclick="closeAlert()">OK</button>
+    </dialog>
+
+    <!-- Dialog para Confirm -->
+    <dialog id="confirmDialog">
+        <p id="confirmMessage">¿Estás seguro?</p>
+        <button onclick="confirmOk()">OK</button>
+        <button onclick="confirmCancel()">Cancelar</button>
+    </dialog>
+
+    <!-- Dialog para Prompt -->
+    <dialog id="promptDialog">
+        <p id="promptMessage">Introduce un valor:</p>
+        <input type="text" id="promptInput" />
+        <button onclick="promptOk()">OK</button>
+        <button onclick="promptCancel()">Cancelar</button>
+    </dialog>
+
+    <script src="punto5.js"></script>
+</body>
+</html>
